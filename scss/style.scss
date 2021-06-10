@@ -20,15 +20,21 @@ body {
 }
 
 .container {
-  max-width: 1000px;
   border-radius: 15px;
   margin: 100px 20px;
+}
+
+@mixin column-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 50px;
 }
 
 .sedans {
   background-color: $bright-orange;
   border-radius: 10px 10px 0 0;
-  padding: 50px;
+  @include column-container;
   button {
     color: $bright-orange;
   }
@@ -36,7 +42,7 @@ body {
 
 .suvs {
   background-color: $dark-cyan;
-  padding: 50px;
+  @include column-container;
   button {
     color: $dark-cyan;
   }
@@ -45,7 +51,7 @@ body {
 .luxury {
   background-color: $darker-cyan;
   border-radius: 0 0 10px 10px;
-  padding: 50px;
+  @include column-container;
   button {
     color: $darker-cyan;
   }
@@ -55,14 +61,15 @@ h1 {
   color: $light-gray;
   text-transform: uppercase;
   font-family: $big-shoulders-font;
-  margin-top: 28px;
+  margin-top: 26px;
+  font-size: 36px;
 }
 
 p {
   color: $transparent-white;
   font-family: $lexend-deca-font;
   font-size: $font-size;
-  margin-top: 28px;
+  margin-top: 26px;
   line-height: 1.5;
 }
 
@@ -74,10 +81,33 @@ button {
   background: $light-gray;
   font-family: $lexend-deca-font;
   font-size: $font-size;
-  margin-top: 28px;
+  margin-top: 26px;
 }
 
 button:hover {
   background-color: transparent;
   color: $light-gray;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    display: flex;
+    max-width: 920px;
+    height: 500px;
+    margin: auto {
+      top: 160px;
+    }
+  }
+
+  .sedans {
+    border-radius: 10px 0 0 10px;
+  }
+
+  .luxury {
+    border-radius: 0 10px 10px 0;
+  }
+
+  p {
+    line-height: 1.8;
+  }
 }
